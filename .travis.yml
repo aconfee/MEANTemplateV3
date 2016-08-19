@@ -14,7 +14,7 @@ env:
 services:
 - mongodb
 before_install:
-- npm install -g grunt
+- npm install webpack -g
 install:
 - npm install
 - npm run build

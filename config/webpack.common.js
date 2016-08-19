@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 var helpers = require('./helpers');
 
 module.exports = {
@@ -30,13 +31,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
-        loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
+        loader: ExtractTextPlugin.extract("css-to-string-loader", "style-loader", "css-loader")
+        //loader: "css-to-string-loader!style-loader!css-loader"
       },
       {
-        test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw'
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract("css-to-string-loader", "css", "sass")
+        //loader: "css-to-string-loader!css!sass"
       }
     ]
   },
@@ -48,6 +49,12 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: 'src/index.html'
+    }),
+
+    new CleanWebpackPlugin(['dist'], {
+      root: helpers.root(),
+      verbose: true,
+      dry: false
     })
   ]
 };

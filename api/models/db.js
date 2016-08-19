@@ -9,7 +9,6 @@ else if(process.env.NODE_ENV === 'test'){
   dbURI = process.env.TEST_MONGOLAB_URI; // TEST_MONGOLAB_URI has been added to .env and .travis.yml(encrypted) for test.
 }
 
-console.log("Connecting to URI: " + dbURI);
 mongoose.connect(dbURI);
 
 // Listen for Mongoose events.
