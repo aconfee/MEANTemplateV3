@@ -12,7 +12,7 @@
     "dev:lint": "gulp hint",
 
     "test": "mocha",
-    "deploy": "git push origin master",
+    "deploy": "git push origin master"
   },
   "engines": {
     "node": "~4.4.5",
