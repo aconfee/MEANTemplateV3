@@ -14,10 +14,8 @@ env:
 services:
 - mongodb
 before_install:
-- npm install webpack -g
 install:
 - npm install
-- npm run build
 before_script:
 script:
 - npm run test

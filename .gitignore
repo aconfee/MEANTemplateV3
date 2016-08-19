@@ -3,6 +3,3 @@ node_modules
 
 # Environment variables
 .env
-
-# Local dist folder (production dist is built in Travis CI)
-dist
