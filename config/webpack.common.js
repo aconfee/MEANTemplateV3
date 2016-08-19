@@ -31,13 +31,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("css-to-string-loader", "style-loader", "css-loader")
-        //loader: "css-to-string-loader!style-loader!css-loader"
+        //loader: ExtractTextPlugin.extract("css-to-string-loader", "style-loader", "css-loader")
+        loader: "css-to-string-loader!style-loader!css-loader"
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("css-to-string-loader", "css", "sass")
-        //loader: "css-to-string-loader!css!sass"
+        //loader: ExtractTextPlugin.extract("css-to-string-loader", "css", "sass")
+        loader: "css-to-string-loader!css!sass"
       }
     ]
   },
