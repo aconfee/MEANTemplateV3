@@ -22,29 +22,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('node-sass-middleware')({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  indentedSyntax: true,
-  sourceMap: true
-}));
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-//app.use(express.static(path.join(__dirname, 'node_modules')));
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// Serve our app to the browser. The Express static function will automatically
-// default to any file called 'index'. So our angular index template is defaulted
-// to without routing.
-
-app.use(function(req, res){
-  //console.log("SENDING FILE");
-    res.sendFile(path.resolve(__dirname, 'index.html'));
-});
-
-
-//app.get('/*', renderIndex);
 
 // API
 app.use('/api', apiRoutes); // These routes will use the authentication above.
@@ -52,6 +29,7 @@ app.use('/api', apiRoutes); // These routes will use the authentication above.
 // API 404
 app.use(function(req, res, next) {
   res.status(200);
+  // If this is an api route that wasn't handled in /api above, throw error.
   if(req.originalUrl.indexOf("/api") !== -1){
     // No need to create full error to display since this is only relevant to the API.
     // Client will be redirected to Angular app (as expected for bad route).
@@ -61,13 +39,16 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Serve Angular app.
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// Serve our app to the browser. The Express static function will automatically
+// default to any file called 'index'. So our angular index template is defaulted
+// to without routing.
 // All errors must be handled from Angular from here.
-//app.use(function(req, res){
-  //res.sendFile(path.join(__dirname, 'app_client_2', 'index.html'));
-//});
-
-
+app.use(function(req, res){
+    res.sendFile(path.resolve(__dirname, 'index.html'));
+});
 
 // error handlers -- if shit has absolutely hit the fan and we get here.
 
