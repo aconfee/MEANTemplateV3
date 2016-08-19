@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA,KACE,QAAS,KACT,KAAM,KAAA,gBAAA,UAAA,MAAA,WAGR,EACE,MAAO","file":"dist.min.css","sourcesContent":["body{\n  padding: 50px;\n  font: 14px \"Lucida Grande\", Helvetica, Arial, sans-serif;\n}\n\na{\n  color: #00B7FF;\n}\n"],"sourceRoot":"/source/"}
