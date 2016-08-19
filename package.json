@@ -1,5 +1,5 @@
 {
-  "name": "MEANTemplateV2",
+  "name": "MEANTemplateV3",
   "version": "1.0.1",
   "private": true,
   "scripts": {
@@ -13,8 +13,6 @@
 
     "test": "mocha",
     "deploy": "git push origin master",
-
-    "postinstall": "typings install"
   },
   "engines": {
     "node": "~4.4.5",
