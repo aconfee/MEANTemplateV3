@@ -20,7 +20,6 @@ install:
 - npm run build
 before_script:
 script:
-- npm run dev:lint
 - npm run test
 after_success:
 after_failure:
