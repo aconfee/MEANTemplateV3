@@ -11,38 +11,29 @@ IN THIS README:
   4. First Time Setup
 
 Description:
-This project is my base scaffolding for any MEAN stack project.
+This project is my base scaffolding for any MEAN stack project using Angular 2.
 - Uses Angular 2.
-- Has tests wired in already testing server health, API endpoints, and Angular 2 components.
-- Has build system set up with Gulp.
+- Has tests wired in already testing data, API endpoints, and Angular 2 components.
+- Has build system set up with Webpack.
 - Has Procfile specified for easy deployment to Heroku
 - Has local MongoDB instance wired up.
 - Connected to Travis CI. Continually tested and deployed on success: https://travis-ci.org/aconfee.
 
-CONTINUOUS INTEGRATION
+CONTINUOUS INTEGRATION AND DEPLOYMENT
 
-After developing and building, pushing to git will run through Travis CI.
-- lints js
-- runs tests
-- deploys to Heroku
+Simply running `npm run deploy` will kick off building the production dist of the app locally (and removing any dev files), running tests locally, then committing and pushing to git. The push to git will trigger Travis CI to run tests on the application once more before deploying to Heroku.
 
 Can see each deployment here: https://travis-ci.org/aconfee
 
 TERMINAL COMMANDS
 
-SETUP:
 - `npm install` -- Installs all dependencies.
-- `npm run compile` -- Compile typescript.
-- `npm run build` -- Uglifies, minifies, distributes, and builds project.
-
-DEVELOP:
-- `npm run dev:start` -- Starts server with nodemon. Restarts server on file changes.
-- `npm run dev:watch` -- Watches all specified files and redistributes them on saves.
-- `npm run dev:lint` -- Show all js warnings and errors.
-- `npm test` -- Runs Mocha unit tests.
-
-DEPLOY:
-- `npm run deploy` -- Deploys code to Heroku.
+- `npm run build` -- Builds production version of app. Compiles scss and typescript and resolves dependencies. Uglifies and distributes.
+- `npm run start` -- Used by Heroku to run app.
+- `npm run dev:build` -- Builds dev version of app and watches for changes.
+- `npm run dev:start` -- Runs app on localhost:3000 and watches for changes.
+- `npm test` -- Runs Mocha unit tests once locally.
+- `npm run deploy` -- As mentioned above, this is the only step needed to make your local code end up on the real life internet.
 
 
 FIRST TIME SETUP
