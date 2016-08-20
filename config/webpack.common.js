@@ -29,15 +29,19 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'file?name=assets/[name].[hash].[ext]'
       },
-      {
-        test: /\.css$/,
-        //loader: ExtractTextPlugin.extract("css-to-string-loader", "style-loader", "css-loader")
-        loader: "css-to-string-loader!style-loader!css-loader"
-      },
+
+      // Load globally applied styles here (public).
       {
         test: /\.scss$/,
-        //loader: ExtractTextPlugin.extract("css-to-string-loader", "css", "sass")
-        loader: "css-to-string-loader!css!sass"
+        exclude: helpers.root('src', 'app'),
+        loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass')
+      },
+
+      // Load component styles here. When loaded with styleUrls in component, string of styles expected.
+      {
+        test: /\.scss$/,
+        include: helpers.root('src', 'app'),
+        loader: 'raw!sass'
       }
     ]
   },

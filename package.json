@@ -8,7 +8,7 @@
     "dev:build": "webpack --config config/webpack.dev.js --progress --profile --bail",
     "dev:start": "nodemon",
     "test": "mocha",
-    "deploy": "git push origin master"
+    "deploy": "npm run build && npm test && git push origin master"
   },
   "engines": {
     "node": "~4.4.5",
@@ -45,14 +45,11 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "clean-webpack-plugin": "^0.1.10",
-    "concurrently": "^2.0.0",
     "css-loader": "^0.23.1",
-    "css-to-string-loader": "^0.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.15.0",
-    "jshint": "^2.9.2",
     "mocha": "^2.5.3",
     "node-sass": "^3.8.0",
     "null-loader": "^0.1.1",
