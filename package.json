@@ -8,7 +8,7 @@
     "dev:build": "webpack --config config/webpack.dev.js --progress --profile --bail",
     "dev:start": "nodemon",
     "test": "mocha",
-    "deploy": "npm run build && npm test && git push origin master"
+    "deploy": "npm run build && npm test && git add . && git commit -m 'production dist built' && git push origin master"
   },
   "engines": {
     "node": "~4.4.5",
