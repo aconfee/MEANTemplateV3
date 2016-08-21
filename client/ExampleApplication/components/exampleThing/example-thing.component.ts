@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
 import { ExampleService } from '../../services/example.service';
-
 import { Person } from '../../viewModels/person.ts';
 
 @Component({

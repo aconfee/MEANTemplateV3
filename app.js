@@ -47,8 +47,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // to without routing.
 // All errors must be handled from Angular from here.
 app.use('*', function(req, res){
-    console.log("Sending app index");
-    console.log("from " + path.resolve(__dirname, 'dist', 'index.html'));
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
 });
 

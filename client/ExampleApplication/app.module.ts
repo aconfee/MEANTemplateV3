@@ -4,8 +4,9 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { routing }        from './app.routing';
 
 import { AppComponent } from './app.component';
-import { ExampleThingComponent } from './components/exampleThing/example-thing.component';
+import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { ExampleThingComponent } from './components/exampleThing/example-thing.component';
 
 import { ExampleService } from './services/example.service';
 
@@ -15,9 +16,10 @@ import { ExampleService } from './services/example.service';
     routing
   ],
   declarations: [
-    AppComponent,
     ExampleThingComponent,
-    AboutComponent
+    HomeComponent,
+    AboutComponent,
+    AppComponent
   ],
   providers: [
     ExampleService
