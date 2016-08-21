@@ -6,9 +6,9 @@ var helpers = require('./helpers');
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    'polyfills': './client/polyfills.ts',
+    'vendor': './client/vendor.ts',
+    'app': './client/ExampleApplication/main.ts'
   },
 
   resolve: {
@@ -33,14 +33,14 @@ module.exports = {
       // Load globally applied styles here (public).
       {
         test: /\.scss$/,
-        exclude: helpers.root('src', 'app'),
+        exclude: helpers.root('client'),
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass')
       },
 
       // Load component styles here. When loaded with styleUrls in component, string of styles expected.
       {
         test: /\.scss$/,
-        include: helpers.root('src', 'app'),
+        include: helpers.root('client'),
         loader: 'raw!sass'
       }
     ]
@@ -52,7 +52,7 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'client/index.html'
     }),
 
     new CleanWebpackPlugin(['dist'], {
