@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ExampleService } from '../../services/example.service';
-import { Person } from '../../viewModels/person.ts';
+import { ExampleVm } from '../../viewModels/exampleVm.ts';
 
 @Component({
   selector: 'example-thing',
@@ -9,7 +9,7 @@ import { Person } from '../../viewModels/person.ts';
 
 export class ExampleThingComponent implements OnInit {
   title: string = 'Title In ExampleThing';
-  people: Person[];
+  exampleData: ExampleVm = new ExampleVm();
 
   @Input()
   text: string;
@@ -18,6 +18,9 @@ export class ExampleThingComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.exampleService.getData().then(people => this.people = people);
+   this.exampleService.getData().then((data) => {
+      this.exampleData = data;
+      console.log(this.exampleData.data[0].name);
+    });
   }
 }
